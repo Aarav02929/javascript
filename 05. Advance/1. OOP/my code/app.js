@@ -75,20 +75,77 @@
 // console.log(Aarav.age);
 // console.log(Aarav.gender);
 
-function Car(make, model, year, color) {
-  this.make = make;
-  this.model = model;
-  this.year = year;
-  this.color = color;
-  this.start = function () {
-    return `Starting the ${this.make} ${this.model} ...`;
-  };
-  this.stop = function () {
-    return `Stopping the ${this.make} ${this.model} ...`;
-  };
+// function Car(make, model, year, color) {
+//   this.make = make;
+//   this.model = model;
+//   this.year = year;
+//   this.color = color;
+//   this.start = function () {
+//     return `Starting the ${this.make} ${this.model} ...`;
+//   };
+//   this.stop = function () {
+//     return `Stopping the ${this.make} ${this.model} ...`;
+//   };
+// }
+
+// const car1 = new Car("Toyota", "Camry", 2020, "Silver");
+// const car2 = new Car("Honda", "CR-V", 2019, "Blue");
+// console.log(car1.start());
+// console.log(car2.stop());
+
+// const num1 = new Number(10);
+// const str1 = new String("Aarav Tiwari");
+// console.log(num1);
+// console.log(typeof num1);
+// console.log(str1);
+// console.log(typeof str1);
+
+// let person = {
+//   greet: function () {
+//     console.log(`Hello my name is ${this.firstName} ${this.lastName}`);
+//   },
+// };
+
+// const Aarav = Object.create(person);
+// Aarav.firstName = "Aarav";
+// Aarav.lastName = "Tiwari";
+// Aarav.greet();
+
+// let jhon = Object.create(person, {
+//   firstName: { value: "John" },
+//   lastName: { value: "Doe" },
+// });
+
+// console.log(jhon);
+// jhon.greet();
+
+// let obj = {};
+
+// console.log(obj.__proto__);
+// console.log(obj.constructor.prototype);
+// console.log(Object.getPrototypeOf(obj));
+// console.log('hi my name is aarav');
+
+function carIsOnOrOff(carIsOn) {
+    if (carIsOn === true) {
+        return `vroom ... vroom`
+    }if (carIsOn === false) {
+        return `car is off`
+    }else {
+        return `invalid input`
+    }
 }
 
-const car1 = new Car("Toyota", "Camry", 2020, "Silver");
-const car2 = new Car("Honda", "CR-V", 2019, "Blue");
-console.log(car1.start());
-console.log(car2.stop());
+let carIsOnOrOffInput = document.querySelector('.carIsOnOrOff');
+let submitButton = document.querySelector('.submitButton');
+
+submitButton.addEventListener('click', (event) => {
+    event.preventDefault(); // Prevents the page from refreshing
+    let inputValue = carIsOnOrOffInput.value.toLowerCase().trim(); // Normalize input
+let booleanValue = inputValue === "true" ? true : inputValue === "false" ? false : "invalid";
+console.log(carIsOnOrOff(booleanValue));
+let p = document.querySelector('p');
+p.textContent = carIsOnOrOff(booleanValue);
+
+})
+
